@@ -5,8 +5,8 @@ files:
   - source:  /
     destination: /var/deploy/www
 # Omitting permissions: section
-# Omitting hooks: section for now
-# hooks:
+# Omitting some parts of hooks: section for now
+hooks:
 # During the ApplicationStop deployment lifecycle event, run the commands 
 #   in the script specified in "location" starting from the root of the 
 #   revision's file bundle.
@@ -17,10 +17,10 @@ files:
 #    - location: 
 #      timeout:
 #      runas: 
-#  BeforeInstall:
-#    - location: 
-#      timeout:
-#      runas: 
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
 #    - location: 
 #      timeout:
 #      runas:
